@@ -69,8 +69,9 @@ class EmailSubscriber implements EventSubscriberInterface
         $event->setSubject($subject);
 
         $content = $this->templateProcessor->processTemplate($content,  $event->getLead());
+        $content = $this->templateProcessor->addTrackingPixel($content);
+        
         $event->setContent($content);
-
 
         if ( empty( trim($event->getPlainText()) ) ) {
             $event->setPlainText( (new PlainTextHelper($content))->getText() );
