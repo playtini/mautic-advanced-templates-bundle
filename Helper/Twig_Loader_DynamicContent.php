@@ -7,8 +7,11 @@ use Mautic\DynamicContentBundle\Entity\DynamicContent;
 use Psr\Log\LoggerInterface;
 use Twig_Error_Loader;
 use Twig_Source;
+use Twig\Loader\ExistsLoaderInterface;
+use Twig\Loader\LoaderInterface;
+use Twig\Loader\SourceContextLoaderInterface;
 
-class Twig_Loader_DynamicContent implements \Twig_LoaderInterface, \Twig_ExistsLoaderInterface, \Twig_SourceContextLoaderInterface
+class Twig_Loader_DynamicContent implements LoaderInterface, ExistsLoaderInterface, SourceContextLoaderInterface
 {
     private static $NAME_PREFIX = 'dc:';
 
